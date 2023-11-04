@@ -1,0 +1,19 @@
+<div class="title">
+  <h1>Ver Detalles del departamento</h1>
+</div>
+
+<app-spinner *ngIf="loading"></app-spinner>
+
+<div *ngIf="dept != null" class="container">
+<mat-card class="card">
+  <mat-card-title>Nombre del departamento:</mat-card-title>
+   <mat-card-subtitle>{{dept.nombre}}</mat-card-subtitle>
+  <mat-card-content>
+    <p><strong>Estado:</strong>
+      {{dept.estado}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button routerLink="/listaProveedores">Volver</button>
+  </mat-card-actions>
+</mat-card>
+</div>

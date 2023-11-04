@@ -1,0 +1,21 @@
+<div class="title">
+    <h1>Ver Detalles del proveedor</h1>
+</div>
+
+<app-spinner *ngIf="loading"></app-spinner>
+
+<div *ngIf="proveedor != null" class="container">
+  <mat-card class="card">
+    <mat-card-title>Cedula:</mat-card-title>
+     <mat-card-subtitle>{{proveedor.cedula}}</mat-card-subtitle>
+    <mat-card-content>
+      <p><strong>Nombre:</strong>
+        {{proveedor.nombreComercial}}</p>
+      <p><strong>Estado:</strong>
+        {{proveedor.estado}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button routerLink="/listaProveedores">Volver</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

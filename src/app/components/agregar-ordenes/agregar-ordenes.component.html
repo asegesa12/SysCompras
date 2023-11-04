@@ -1,0 +1,87 @@
+<div class="title">
+  <h1>{{operacion}} Orden</h1>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+
+<div class="container">
+  <mat-card class="card" style="text-align: center;">
+    <mat-card-subtitle>
+      Datos de la orden
+    </mat-card-subtitle>
+
+    <form [formGroup]="form" (ngSubmit)="agregarEditarProveedor()" >
+      <mat-grid-list cols="2" rowHeight="80px">
+        <mat-grid-tile [colspan]="1">
+          <mat-form-field appearance="outline">
+            <mat-label>Order Number</mat-label>
+            <input formControlName="OrderNumber" style="background-color: #f0f0f0; color:#808080; cursor: not-allowed;" type="number"  autocomplete="off" matInput readonly>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select formControlName="Estado">
+              <mat-option value="Pendiente">Pendiente</mat-option>
+              <mat-option value="Activo">Activo</mat-option>
+              <mat-option value="Anulado">Anulado</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Articulo</mat-label>
+            <input formControlName="Articulo" type="text" autocomplete="off"  matInput>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Stock</mat-label>
+            <input formControlName="Stock" type="number" autocomplete="off"  matInput>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Unidad De Medida</mat-label>
+            <mat-select formControlName="Unidad">
+              <mat-option value="XL">Extra Large</mat-option>
+              <mat-option value="L">Large</mat-option>
+              <mat-option value="M">Medium</mat-option>
+              <mat-option value="S">Small</mat-option>
+              <mat-option value="Mt">Meter</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+          <mat-form-field appearance="outline">
+            <mat-label>Costo Unitario</mat-label>
+            <input formControlName="CostoUnitario" type="number" autocomplete="off"  matInput>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [min]="minDate" [max]="maxDate" formControlName="FechaOrden" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+        <mat-grid-tile [colspan]="2">
+          <button type="submit" [disabled]="form.invalid" class="btnAceptar" mat-raised-button color="primary">Agregar</button>
+          <button routerLink="/listaOrdenes" mat-raised-button>Volver</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+
+  </mat-card>
+</div>

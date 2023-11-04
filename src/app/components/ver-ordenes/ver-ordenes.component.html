@@ -1,0 +1,41 @@
+<div class="title">
+  <h1>Ver Ordenes de compra</h1>
+</div>
+
+<app-spinner *ngIf="loading"></app-spinner>
+
+<div *ngIf="ordenes != null" class="container">
+<mat-card class="card">
+  <mat-card-title>Order Number:</mat-card-title>
+   <mat-card-subtitle>{{ordenes.orderNumber}}</mat-card-subtitle>
+  <mat-card-content>
+    <p><strong>Estado:</strong>
+      {{ordenes.estado}}</p>
+  </mat-card-content>
+  <mat-card-content>
+    <p><strong>Articulo:</strong>
+      {{ordenes.articulo}}</p>
+  </mat-card-content>
+  <mat-card-content>
+    <p><strong>Stock:</strong>
+      {{ordenes.stock}}</p>
+  </mat-card-content>
+  <mat-card-content>
+    <p><strong>Tipo de medida:</strong>
+      {{ordenes.medida}}</p>
+  </mat-card-content>
+
+  <mat-card-content>
+    <p><strong>Costo Unitario</strong>
+      {{ordenes.costoUnitario}}</p>
+  </mat-card-content>
+
+  <mat-card-content>
+    <p><strong>Fecha de orden:</strong>
+      {{ordenes.fechaOrden | date}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button routerLink="/listaOrdenes">Volver</button>
+  </mat-card-actions>
+</mat-card>
+</div>
